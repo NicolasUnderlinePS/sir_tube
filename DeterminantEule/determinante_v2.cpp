@@ -1,7 +1,9 @@
+/*--- Codigo referente ao executavel apresentado ---*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-//Nicolas Pereira Silva 830463
+
 struct noh{
 	int aresta;
 	int grau;
@@ -24,7 +26,7 @@ int main(){
 		printf("|2 - Ajuda       | \n");
 		printf("|0 - Sair        | \n");
 		printf("|________________|   \n");		
-		printf("Opção: ");
+		printf("OpÃ§Ã£o: ");
 		scanf ("%d", &cursor);
 		system("cls");
 		if(cursor == 1){
@@ -33,7 +35,7 @@ int main(){
 			int countImpar=0;
 			
 			printf("\nExecutando\n");
-			printf("Escolha a quantidade de nós\nOpção:");
+			printf("Escolha a quantidade de nÃ³s\nOpÃ§Ã£o:");
 			scanf ("%d", &limit);
 	
 			struct noh grafo[limit][limit];
@@ -47,18 +49,18 @@ int main(){
 			      
 			    }
 			    
-		//Inserção das arestas//
+		//InserÃ§Ã£o das arestas//
 		printf ("\n---Informe o valor das arestas---\n");
 		for ( i=0; i<limit; i++ )
 		    for ( j=-0; j<limit; j++ )
 		    {
-		    	//Tratamento dos nós com ligação própria
+		    	//Tratamento dos nÃ³s com ligaÃ§Ã£o prÃ³pria
 		   	  	if(j == i){
 		   	  		grafo[ i ][ j ].aresta=0;
 				}
 				
 				else{
-					//Tratamento para não háver arestas duplicados
+					//Tratamento para nÃ£o hÃ¡ver arestas duplicados
 					if(grafo[j][i].aresta != -1 ){
 						grafo[ i ][ j ].aresta= grafo[j][i].aresta;
 	
@@ -66,7 +68,7 @@ int main(){
 					}
 					//Inserindo o valor das arestas
 					else{
-						printf ("\nNó |%d| tem ligação com o nó |%d| ? = ", i, j);
+						printf ("\nNÃ³ |%d| tem ligaÃ§Ã£o com o nÃ³ |%d| ? = ", i, j);
 						scanf ("%d", &grafo[ i ][ j ].aresta);
 						if(grafo[ i ][ j ].aresta > 0){
 							grafo[i][i].grau += 1;
@@ -77,19 +79,19 @@ int main(){
 		    }
 		    
 		system("cls");
-		printf("\n---Gráu dos nós---\n");
-		//Exibição de graú dos nós
+		printf("\n---GrÃ¡u dos nÃ³s---\n");
+		//ExibiÃ§Ã£o de graÃº dos nÃ³s
 		for ( i=0; i<limit; i++ )
 		    for ( j=0; j<limit; j++ )
 		    {
 		   		if(i == j ){
-		   			printf ("\nO Nó [%d] tem Graú:%d \n",i, grafo[i][j].grau);	
+		   			printf ("\nO NÃ³ [%d] tem GraÃº:%d \n",i, grafo[i][j].grau);	
 				}
 	
 		    }
 		    
-		printf("\n---Ligação entre os nós---\n");
-		//Exibição das arestas
+		printf("\n---LigaÃ§Ã£o entre os nÃ³s---\n");
+		//ExibiÃ§Ã£o das arestas
 		for ( i=0; i<limit; i++ )
 		    for ( j=0; j<limit; j++ )
 		    {				
@@ -108,16 +110,16 @@ int main(){
 		
 		//Tratamento para um grafo-euleriano
 		if(countPar == limit){
-			printf("\nO Grafo é Euleriano perfeito\n\n");
+			printf("\nO Grafo Ã© Euleriano perfeito\n\n");
 		}
 		else{
 			//Tratamento para um grafo-euleriano imperfeito
 			if(countImpar <= 2){
-				printf("\nO Grafo é Euleriano imperfeito\n\n");
+				printf("\nO Grafo Ã© Euleriano imperfeito\n\n");
 			}else{
-				//Tratamento para um grafo não euleriano
+				//Tratamento para um grafo nÃ£o euleriano
 				if(countImpar >= 3){
-					printf("\nO Grafo não é euleriano\n\n");	
+					printf("\nO Grafo nÃ£o Ã© euleriano\n\n");	
 				}
 			}
 
@@ -129,16 +131,16 @@ int main(){
 		}
 		else{
 			if(cursor == 2){
-				printf("Obrigado pela preferência\n");
-				printf("Ao selecionar a opção de Execução, você precisara informar o número total de nós que seu grafo possui.\n");
-				printf("Logo após isso, será solicitado que informe o valor das arestas entre cada nó.\n");
-				printf("Não se preocupe em indicar os nós, o sistema apresenta eles por conta própria.\n");
-				printf("Caso o nó apresentado não possua uma aresta com outro nó, informe o valor 0 (zero) \n");
-				printf("Ao final da inserção o programa ira exibir o grau de cada nó, as ligações\n");
+				printf("Obrigado pela preferÃªncia\n");
+				printf("Ao selecionar a opÃ§Ã£o de ExecuÃ§Ã£o, vocÃª precisara informar o nÃºmero total de nÃ³s que seu grafo possui.\n");
+				printf("Logo apÃ³s isso, serÃ¡ solicitado que informe o valor das arestas entre cada nÃ³.\n");
+				printf("NÃ£o se preocupe em indicar os nÃ³s, o sistema apresenta eles por conta prÃ³pria.\n");
+				printf("Caso o nÃ³ apresentado nÃ£o possua uma aresta com outro nÃ³, informe o valor 0 (zero) \n");
+				printf("Ao final da inserÃ§Ã£o o programa ira exibir o grau de cada nÃ³, as ligaÃ§Ãµes\n");
 				printf("e qual o tipo de grafo:\n");
 				printf("Euleriano perfeito\n");
 				printf("Euleriano imperfeito\n");
-				printf("Grafo não euleriano \n\n");
+				printf("Grafo nÃ£o euleriano \n\n");
 				printf("Tenha um bom uso!\n\n");
 			}
 			else{
